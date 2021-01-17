@@ -9,8 +9,10 @@
   <body>
     <div class="container">
       <header>
+        <i class="fas fa-book-open"></i>
         <h1>My<span>Book</span>List</h1>
       </header>
+      <!-- <div class="message succes"><p></p></div> -->
       <form class="book-form">
         <div class="box">
           <label for="title">Title</label>
@@ -27,10 +29,10 @@
           <input type="text" id="isbn" />
         </div>
 
-        <input type="submit" value="Add Book" />
+        <input class="btn" type="submit" value="Add Book" />
       </form>
 
-      <table>
+      <table cellspacing="0">
         <thead>
           <tr>
             <th>Title</th>
@@ -39,7 +41,32 @@
             <th></th>
           </tr>
         </thead>
-        <tbody class="book-list"></tbody>
+        <tbody class="book-list">
+          <tr>
+            <td>Book1</td>
+            <td>Book1</td>
+            <td>Book1</td>
+            <td class="close">
+              <div><span>X</span></div>
+            </td>
+          </tr>
+          <tr>
+            <td>Book1</td>
+            <td>Book1</td>
+            <td>Book1</td>
+            <td class="close">
+              <div><span>X</span></div>
+            </td>
+          </tr>
+          <tr>
+            <td>Book1</td>
+            <td>Book1</td>
+            <td>Book1</td>
+            <td class="close">
+              <div><span>X</span></div>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </body>
