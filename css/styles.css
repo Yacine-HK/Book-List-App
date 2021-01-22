@@ -117,18 +117,19 @@ td span {
   color: #fff;
 }
 
-.message {
+#message {
+  display: none;
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 1rem;
 }
-.message p {
+#message p {
   color: #fff;
 }
 
-.message.danger {
+#message.danger {
   background-color: #d64f4f;
 }
-.message.succes {
+#message.succes {
   background-color: #6ec199;
 }
