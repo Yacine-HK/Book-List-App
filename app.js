@@ -39,7 +39,6 @@ class UI {
   static clearFileds() {
     title.value = ""
     author.value = ""
-    isbn.value = ""
   }
 
   static removeBook(book) {
@@ -96,25 +95,36 @@ form.addEventListener("submit", (e) => {
   e.preventDefault()
 
   // form values
-  const title = document.querySelector("#title").value
+  let title = document.querySelector("#title").value
   const author = document.querySelector("#author").value
-  const isbn = document.querySelector("#isbn").value
+
+  // Get Random isbn number
+  let isbn = `978-${Math.round(Math.random())}-${Math.ceil(Math.random() * 99999)}`
 
   // initalize the new added book
   const book = new Book(title, author, isbn)
 
-  // Add Book to LocalStorage
-  Store.addBook(book)
+  if (localStorage.getItem("books")) {
+    JSON.parse(localStorage.getItem("books")).forEach(book => {
+      if (book.title === title) {
+        title = null
+        UI.showAlert("danger", "The title is Already Exist !")
+      }
+    })
+  }
 
   // Condition : All fields all required
-  if (title === "" | author === "" | isbn === "") {
+  if (title === "" | author === "") {
     UI.showAlert("danger", "Please Fill all The Fields !")
   }
 
-  else {
+  else if (title !== null) {
     UI.showAlert("succes", "Book Added Succefuly !")
     // Add book to UI
     UI.addToList(book)
+
+    // Add Book to LocalStorage
+    Store.addBook(book)
   }
 
   // Clear Fields 
